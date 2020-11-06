@@ -1,0 +1,2 @@
+import cv2, imutils, numpy, requests
+cv2.imwrite("out.jpg", cv2.createStitcher() if imutils.is_cv3() else cv2.Stitcher_create().stitch([cv2.imdecode(numpy.asarray(bytearray(requests.get(u, stream=True).raw.read()), dtype="uint8"), cv2.IMREAD_COLOR) for u in ['https://i.imgur.com/sjVZKOo.jpg', 'https://i.imgur.com/6UihTbh.jpg', 'https://i.imgur.com/txRM3L7.jpg', 'https://i.imgur.com/enU5kd4.jpg', 'https://i.imgur.com/lgzUGRe.jpg']])[1])
